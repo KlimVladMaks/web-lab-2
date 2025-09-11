@@ -13,10 +13,29 @@ class Car(models.Model):
     color = models.CharField(max_length=30, null=True, blank=True)
 
 class DrivingLicense(models.Model):
+    LICENSE_TYPES = [
+        ('A', 'Категория A'),
+        ('B', 'Категория B'),
+        ('C', 'Категория C'),
+        ('D', 'Категория D'),
+        ('BE', 'Категория BE'),
+        ('CE', 'Категория CE'),
+        ('DE', 'Категория DE'),
+        ('Tm', 'Категория Tm'),
+        ('Tb', 'Категория Tb'),
+        ('M', 'Категория M'),
+        ('A1', 'Подкатегория A1'),
+        ('B1', 'Подкатегория B1'),
+        ('C1', 'Подкатегория C1'),
+        ('D1', 'Подкатегория D1'),
+        ('C1E', 'Подкатегория C1E'),
+        ('D1E', 'Подкатегория D1E'),
+    ]
+
     id_license = models.AutoField(primary_key=True)
     owner = models.ForeignKey(CarOwner, on_delete=models.CASCADE)
     license_number = models.CharField(max_length=10)
-    license_type = models.CharField(max_length=10)
+    license_type = models.CharField(max_length=10, choices=LICENSE_TYPES)
     issue_date = models.DateField()
 
 class Ownership(models.Model):
