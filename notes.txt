@@ -1,3 +1,10 @@
 # Работа с venv:
 .venv\Scripts\activate
 deactivate
+
+# Данные суперпользователя:
+Username: admin
+Password: 12345
+
+# Админ-панель:
+http://127.0.0.1:8000/admin/

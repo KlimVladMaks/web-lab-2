@@ -1,3 +1,18 @@
 from django.contrib import admin
+from .models import CarOwner, Car, DrivingLicense, Ownership
 
-# Register your models here.
+@admin.register(CarOwner)
+class CarOwnerAdmin(admin.ModelAdmin):
+    list_display = ['id_owner', 'last_name', 'first_name', 'birth_date']
+
+@admin.register(Car)
+class CarAdmin(admin.ModelAdmin):
+    list_display = ['id_car', 'license_plate', 'model', 'color']
+
+@admin.register(DrivingLicense)
+class DrivingLicenseAdmin(admin.ModelAdmin):
+    list_display = ['id_license', 'owner', 'license_number', 'license_type', 'issue_date']
+
+@admin.register(Ownership)
+class OwnershipAdmin(admin.ModelAdmin):
+    list_display = ['id_ownership', 'owner', 'car', 'start_date', 'end_date']
