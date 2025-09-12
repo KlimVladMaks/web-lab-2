@@ -5,6 +5,7 @@ class CarOwner(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     birth_date = models.DateField(null=True, blank=True)
+    cars = models.ManyToManyField('Car', through='Ownership')
 
     def __str__(self):
         return f"{self.last_name} {self.first_name}"

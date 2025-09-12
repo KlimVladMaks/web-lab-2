@@ -8,3 +8,7 @@ Password: 12345
 
 # Админ-панель:
 http://127.0.0.1:8000/admin/
+
+# Миграция БД:
+python manage.py makemigrations project_first_app
+python manage.py migrate
