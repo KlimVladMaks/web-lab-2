@@ -6,11 +6,19 @@ class CarOwner(models.Model):
     last_name = models.CharField(max_length=30)
     birth_date = models.DateField(null=True, blank=True)
 
+    def __str__(self):
+        return f"{self.last_name} {self.first_name}"
+
+
 class Car(models.Model):
     id_car = models.AutoField(primary_key=True)
     license_plate = models.CharField(max_length=15)
     model = models.CharField(max_length=20)
     color = models.CharField(max_length=30, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.model} ({self.license_plate})"
+
 
 class DrivingLicense(models.Model):
     LICENSE_TYPES = [
@@ -38,9 +46,16 @@ class DrivingLicense(models.Model):
     license_type = models.CharField(max_length=10, choices=LICENSE_TYPES)
     issue_date = models.DateField()
 
+    def __str__(self):
+        return f"{self.license_number} ({self.license_type})"
+
+
 class Ownership(models.Model):
     id_ownership = models.AutoField(primary_key=True)
     owner = models.ForeignKey(CarOwner, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.owner} - {self.car} ({self.start_date} - {self.end_date})"
