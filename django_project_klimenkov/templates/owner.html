@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Информация о владельце</title>
+    <title>Информация об автовладельце</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,7 +28,9 @@
     </style>
 </head>
 <body>
-    <h1>Информация о владельце автомобиля</h1>
+    <a href="{% url 'owners_list' %}" class="back-link">← Назад к списку автовладельцев</a>
+
+    <h1>Информация об автовладельце</h1>
     
     <div class="owner-info">
         <p><strong>ID владельца:</strong> {{ owner.id_owner }}</p>

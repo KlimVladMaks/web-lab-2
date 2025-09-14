@@ -12,3 +12,11 @@ http://127.0.0.1:8000/admin/
 # Миграция БД:
 python manage.py makemigrations project_first_app
 python manage.py migrate
+
+# Запуск сервера:
+python manage.py runserver
+
+# URL-адреса:
+http://127.0.0.1:8000/admin/
+http://127.0.0.1:8000/owner/<int:owner_id>/
+http://127.0.0.1:8000/owners/

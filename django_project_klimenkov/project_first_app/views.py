@@ -13,3 +13,10 @@ def owner_detail(request, owner_id):
         raise Http404("Владелец автомобиля не найден")
     
     return render(request, 'owner.html', {'owner': owner})
+
+def owners_list(request):
+    """
+    Представление для отображения списка всех владельцев автомобилей.
+    """
+    owners = CarOwner.objects.all()
+    return render(request, 'owners_list.html', {'owners': owners})
