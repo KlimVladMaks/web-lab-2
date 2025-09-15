@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render
-from .models import CarOwner, Car
+from .models import Owner, Car
 from django.views.generic import ListView, DetailView
 
 
@@ -9,8 +9,8 @@ def owner_detail(request, owner_id):
     Представление для отображения детальной информации о владельце автомобиля.
     """
     try:
-        owner = CarOwner.objects.get(pk=owner_id)
-    except CarOwner.DoesNotExist:
+        owner = Owner.objects.get(pk=owner_id)
+    except Owner.DoesNotExist:
         raise Http404("Владелец автомобиля не найден")
     
     return render(request, 'owner_detail.html', {'owner': owner})
@@ -20,7 +20,7 @@ def owners_list(request):
     """
     Представление для отображения списка всех владельцев автомобилей.
     """
-    owners = CarOwner.objects.all()
+    owners = Owner.objects.all()
     return render(request, 'owners_list.html', {'owners': owners})
 
 

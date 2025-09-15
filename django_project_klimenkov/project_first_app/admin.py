@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import CarOwner, Car, DrivingLicense, Ownership
+from .models import Owner, Car, DrivingLicense, Ownership
 
-@admin.register(CarOwner)
-class CarOwnerAdmin(admin.ModelAdmin):
+@admin.register(Owner)
+class OwnerAdmin(admin.ModelAdmin):
     list_display = ['id_owner', 'last_name', 'first_name', 'birth_date']
 
 @admin.register(Car)

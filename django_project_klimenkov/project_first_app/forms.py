@@ -1,10 +1,10 @@
 from django import forms
-from .models import CarOwner
+from .models import Owner
 
 
-class CarOwnerForm(forms.ModelForm):
+class OwnerForm(forms.ModelForm):
     class Meta:
-        model = CarOwner
+        model = Owner
         fields = ['first_name', 'last_name', 'birth_date']
         widgets = {
             'birth_date': forms.DateInput(attrs={'type': 'date'})
