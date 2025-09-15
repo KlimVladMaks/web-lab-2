@@ -24,6 +24,10 @@ def owners_list(request):
     return render(request, 'owners_list.html', {'owners': owners})
 
 
+def owner_create():
+    pass
+
+
 class CarsListView(ListView):
     model = Car
     template_name = 'cars_list.html'
