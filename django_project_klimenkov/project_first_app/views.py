@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render
 from .models import CarOwner, Car
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 
 def owner_detail(request, owner_id):
@@ -13,7 +13,7 @@ def owner_detail(request, owner_id):
     except CarOwner.DoesNotExist:
         raise Http404("Владелец автомобиля не найден")
     
-    return render(request, 'owner.html', {'owner': owner})
+    return render(request, 'owner_detail.html', {'owner': owner})
 
 
 def owners_list(request):
@@ -28,3 +28,10 @@ class CarsListView(ListView):
     model = Car
     template_name = 'cars_list.html'
     context_object_name = 'cars'
+
+
+class CarDetailView(DetailView):
+    model = Car
+    template_name = 'car_detail.html'
+    context_object_name = 'car'
+    pk_url_kwarg = 'car_id'

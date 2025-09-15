@@ -6,6 +6,11 @@
     <title>Список автовладельцев</title>
 </head>
 <body>
+    <div>
+        <p><strong>Список автовладельцев</strong></p>
+        <a href="{% url 'cars_list' %}">Список автомобилей</a>
+    </div>
+
     <h1>Список автовладельцев</h1>
     
     {% if owners %}
