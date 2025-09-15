@@ -1,7 +1,12 @@
 from django.http import Http404
-from django.shortcuts import render
-from .models import Owner, Car
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
+from .models import Owner, Car
+from .forms import OwnerForm
+
+
+def root_redirect(request):
+    return redirect('owners_list')
 
 
 def owner_detail(request, owner_id):
@@ -24,8 +29,27 @@ def owners_list(request):
     return render(request, 'owners_list.html', {'owners': owners})
 
 
-def owner_create():
-    pass
+def create_owner(request):
+    if request.method == 'POST':
+        form = OwnerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('owners_list')
+    else:
+        form = OwnerForm()
+    return render(request, 'create_owner.html', {'form': form})
+
+
+def edit_owner(request, owner_id):
+    owner = get_object_or_404(Owner, id_owner=owner_id)
+    if request.method == 'POST':
+        form = OwnerForm(request.POST, instance=owner)
+        if form.is_valid():
+            form.save()
+            return redirect('owners_list')
+    else:
+        form = OwnerForm(instance=owner)
+    return render(request, 'edit_owner.html', {'form': form, 'owner': owner})
 
 
 class CarsListView(ListView):

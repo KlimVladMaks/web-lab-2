@@ -15,7 +15,7 @@
 
     <h1>Список автовладельцев</h1>
 
-    <a href="">Добавить автовладельца</a>
+    <a href="{% url 'create_owner' %}">Добавить автовладельца</a>
     
     {% if owners %}
         <table>
@@ -40,7 +40,11 @@
                             Подробнее
                         </a>
                     </td>
-                    <td>Изменить</td>
+                    <td>
+                        <a href="{% url 'edit_owner' owner.id_owner %}">
+                            Изменить
+                        </a>
+                    </td>
                     <td>Удалить</td>
                 </tr>
                 {% endfor %}
