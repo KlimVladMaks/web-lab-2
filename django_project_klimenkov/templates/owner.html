@@ -4,35 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Информация об автовладельце</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            line-height: 1.6;
-        }
-        .owner-info {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        .back-link {
-            margin-top: 20px;
-            display: inline-block;
-            color: #007bff;
-            text-decoration: none;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 <body>
-    <a href="{% url 'owners_list' %}" class="back-link">← Назад к списку автовладельцев</a>
+    <a href="{% url 'owners_list' %}">← Назад к списку автовладельцев</a>
 
     <h1>Информация об автовладельце</h1>
     
-    <div class="owner-info">
+    <div>
         <p><strong>ID владельца:</strong> {{ owner.id_owner }}</p>
         <p><strong>Фамилия:</strong> {{ owner.last_name }}</p>
         <p><strong>Имя:</strong> {{ owner.first_name }}</p>
