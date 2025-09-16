@@ -26,6 +26,8 @@
                     <th>Гос. номер</th>
                     <th>Цвет</th>
                     <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +42,11 @@
                             Подробнее
                         </a>
                     </td>
-                    <td>Изменить</td>
+                    <td>
+                        <a href="{% url 'edit_car' car.id_car %}">
+                            Изменить
+                        </a>
+                    </td>
                     <td>Удалить</td>
                 </tr>
                 {% endfor %}
