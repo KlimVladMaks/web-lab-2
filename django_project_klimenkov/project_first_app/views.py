@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView, UpdateView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView
 from django.urls import reverse_lazy
 from .models import Owner, Car
 from .forms import OwnerForm
@@ -81,3 +81,10 @@ class CarUpdateView(UpdateView):
     success_url = reverse_lazy('cars_list')
     context_object_name = 'car'
     pk_url_kwarg = 'car_id'
+
+
+class CarCreateView(CreateView):
+    model = Car
+    template_name = 'cars/create_car.html'
+    fields = ['license_plate', 'model', 'color']
+    success_url = reverse_lazy('cars_list')
