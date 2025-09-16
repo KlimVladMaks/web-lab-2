@@ -47,7 +47,11 @@
                             Изменить
                         </a>
                     </td>
-                    <td>Удалить</td>
+                    <td>
+                        <a href="{% url 'delete_car' car.car_id %}">
+                            Удалить
+                        </a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
