@@ -18,7 +18,7 @@ def owner_detail(request, owner_id):
     except Owner.DoesNotExist:
         raise Http404("Владелец автомобиля не найден")
     
-    return render(request, 'owner_detail.html', {'owner': owner})
+    return render(request, 'owners/owner_detail.html', {'owner': owner})
 
 
 def owners_list(request):
@@ -26,7 +26,7 @@ def owners_list(request):
     Представление для отображения списка всех владельцев автомобилей.
     """
     owners = Owner.objects.all()
-    return render(request, 'owners_list.html', {'owners': owners})
+    return render(request, 'owners/owners_list.html', {'owners': owners})
 
 
 def create_owner(request):
@@ -37,7 +37,7 @@ def create_owner(request):
             return redirect('owners_list')
     else:
         form = OwnerForm()
-    return render(request, 'create_owner.html', {'form': form})
+    return render(request, 'owners/create_owner.html', {'form': form})
 
 
 def edit_owner(request, owner_id):
@@ -49,17 +49,25 @@ def edit_owner(request, owner_id):
             return redirect('owners_list')
     else:
         form = OwnerForm(instance=owner)
-    return render(request, 'edit_owner.html', {'form': form, 'owner': owner})
+    return render(request, 'owners/edit_owner.html', {'form': form, 'owner': owner})
+
+
+def delete_owner(request, owner_id):
+    owner = get_object_or_404(Owner, id_owner=owner_id)
+    if request.method == 'POST':
+        owner.delete()
+        return redirect('owners_list')
+    return render(request, 'owners/confirm_delete_owner.html', {'owner': owner})
 
 
 class CarsListView(ListView):
     model = Car
-    template_name = 'cars_list.html'
+    template_name = 'cars/cars_list.html'
     context_object_name = 'cars'
 
 
 class CarDetailView(DetailView):
     model = Car
-    template_name = 'car_detail.html'
+    template_name = 'cars/car_detail.html'
     context_object_name = 'car'
     pk_url_kwarg = 'car_id'

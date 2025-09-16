@@ -26,6 +26,8 @@
                     <th>Имя</th>
                     <th>Дата рождения</th>
                     <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +47,11 @@
                             Изменить
                         </a>
                     </td>
-                    <td>Удалить</td>
+                    <td>
+                        <a href="{% url 'delete_owner' owner.id_owner %}">
+                            Удалить
+                        </a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
