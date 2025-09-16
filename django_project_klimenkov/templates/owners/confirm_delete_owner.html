@@ -11,7 +11,7 @@
     <h1>Подтверждение удаления</h1>
     
     <p>Вы уверены, что хотите удалить автовладельца:</p>
-    <p><strong>{{ owner.first_name }} {{ owner.last_name }} (ID: {{ owner.id_owner }})</strong></p>
+    <p><strong>{{ owner.first_name }} {{ owner.last_name }} (ID: {{ owner.owner_id }})</strong></p>
     
     <form method="post">
         {% csrf_token %}

@@ -3,16 +3,16 @@ from .models import Owner, Car, DrivingLicense, Ownership
 
 @admin.register(Owner)
 class OwnerAdmin(admin.ModelAdmin):
-    list_display = ['id_owner', 'last_name', 'first_name', 'birth_date']
+    list_display = ['owner_id', 'last_name', 'first_name', 'birth_date']
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
-    list_display = ['id_car', 'license_plate', 'model', 'color']
+    list_display = ['car_id', 'license_plate', 'model', 'color']
 
 @admin.register(DrivingLicense)
 class DrivingLicenseAdmin(admin.ModelAdmin):
-    list_display = ['id_license', 'owner', 'license_number', 'license_type', 'issue_date']
+    list_display = ['license_id', 'owner', 'license_number', 'license_type', 'issue_date']
 
 @admin.register(Ownership)
 class OwnershipAdmin(admin.ModelAdmin):
-    list_display = ['id_ownership', 'owner', 'car', 'start_date', 'end_date']
+    list_display = ['ownership_id', 'owner', 'car', 'start_date', 'end_date']

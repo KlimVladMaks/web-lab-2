@@ -42,7 +42,7 @@ def create_owner(request):
 
 
 def edit_owner(request, owner_id):
-    owner = get_object_or_404(Owner, id_owner=owner_id)
+    owner = get_object_or_404(Owner, owner_id=owner_id)
     if request.method == 'POST':
         form = OwnerForm(request.POST, instance=owner)
         if form.is_valid():
@@ -54,7 +54,7 @@ def edit_owner(request, owner_id):
 
 
 def delete_owner(request, owner_id):
-    owner = get_object_or_404(Owner, id_owner=owner_id)
+    owner = get_object_or_404(Owner, owner_id=owner_id)
     if request.method == 'POST':
         owner.delete()
         return redirect('owners_list')
