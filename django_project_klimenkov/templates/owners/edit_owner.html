@@ -8,7 +8,7 @@
 <body>
     <a href="{% url 'owners_list' %}">← Назад к списку автовладельцев</a>
     
-    <h1>Изменить автовладельца: {{ owner.first_name }} {{ owner.last_name }}</h1>
+    <h1>Изменить автовладельца: {{ owner.first_name }} {{ owner.last_name }} (ID: {{ owner.id }})</h1>
     
     <form method="post">
         {% csrf_token %}

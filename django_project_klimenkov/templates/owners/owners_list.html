@@ -10,7 +10,8 @@
 <body>
     <div>
         <p><strong>Список автовладельцев</strong></p>
-        <a href="{% url 'cars_list' %}">Список автомобилей</a>
+        <a href="{% url 'cars_list' %}">Список автомобилей</a><br>
+        <a href="/admin">Админ-панель</a>
     </div>
 
     <h1>Список автовладельцев</h1>
@@ -22,6 +23,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Username</th>
                     <th>Фамилия</th>
                     <th>Имя</th>
                     <th>Дата рождения</th>
@@ -34,6 +36,7 @@
                 {% for owner in owners %}
                 <tr>
                     <td>{{ owner.id }}</td>
+                    <td>{{ owner.username }}</td>
                     <td>{{ owner.last_name }}</td>
                     <td>{{ owner.first_name }}</td>
                     <td>{{ owner.birth_date|default:"Не указана" }}</td>
