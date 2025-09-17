@@ -10,12 +10,12 @@ def root_redirect(request):
     return redirect('owners_list')
 
 
-def owner_detail(request, owner_id):
+def owner_detail(request, id):
     """
     Представление для отображения детальной информации о владельце автомобиля.
     """
     try:
-        owner = Owner.objects.get(pk=owner_id)
+        owner = Owner.objects.get(pk=id)
     except Owner.DoesNotExist:
         raise Http404("Владелец автомобиля не найден")
     
@@ -41,8 +41,8 @@ def create_owner(request):
     return render(request, 'owners/create_owner.html', {'form': form})
 
 
-def edit_owner(request, owner_id):
-    owner = get_object_or_404(Owner, owner_id=owner_id)
+def edit_owner(request, id):
+    owner = get_object_or_404(Owner, id=id)
     if request.method == 'POST':
         form = OwnerForm(request.POST, instance=owner)
         if form.is_valid():
@@ -53,8 +53,8 @@ def edit_owner(request, owner_id):
     return render(request, 'owners/edit_owner.html', {'form': form, 'owner': owner})
 
 
-def delete_owner(request, owner_id):
-    owner = get_object_or_404(Owner, owner_id=owner_id)
+def delete_owner(request, id):
+    owner = get_object_or_404(Owner, id=id)
     if request.method == 'POST':
         owner.delete()
         return redirect('owners_list')

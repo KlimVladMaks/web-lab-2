@@ -3,13 +3,8 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Owner(AbstractUser):
-    owner_id = models.AutoField(primary_key=True)
     birth_date = models.DateField(null=True, blank=True)
     cars = models.ManyToManyField('Car', through='Ownership')
-
-    # Временные поля
-    username = models.CharField(max_length=150, unique=True, blank=True, null=True)
-    password = models.CharField(max_length=128, blank=True, null=True)
 
     def __str__(self):
         return f"{self.last_name} {self.first_name}"
