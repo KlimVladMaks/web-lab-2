@@ -1,3 +1,12 @@
+:root {
+    --background-color: rgb(255, 255, 255);
+    --gray: rgb(213, 213, 213);
+    --black: rgb(30, 30, 30);
+    --light-blue: rgb(183, 182, 255);
+    --blue: rgb(0, 0, 126);
+    --red: rgb(182, 0, 0);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +16,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: var(--black);
+    background-color: var(--background-color);
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -16,19 +25,69 @@ body {
 
 .nav-menu {
     display: inline-block;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin: 20px 0;
+    background-color: var(--gray);
+    padding: 15px;
+    margin: 8px 0;
+    border: 1px solid var(--black);
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: #333;
+    color: var(--black);
 }
 
 .nav-menu a:hover,
 .nav-menu a:focus {
-    border-bottom: 2px solid;
+    border-bottom: 2px solid var(--black);
+}
+
+.create-button {
+    display: inline-block;
+    padding: 8px 12px;
+    background: var(--gray);
+    color: var(--black);
+    text-decoration: none;
+    margin: 10px 0;
+    border: 1px solid var(--black);
+}
+
+.create-button:hover {
+    background-color: var(--light-blue);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+}
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.table th,
+.table td {
+  padding: 5px 7px;
+  border: 1px solid var(--black);
+}
+
+.table th {
+    background-color: var(--gray);
+}
+
+.table a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 600;
+}
+
+.table a:hover,
+.table a:focus {
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+}
+
+.table .delete:hover,
+.table .delete:focus {
+    color: var(--red);
+    border-bottom: 2px solid var(--red)
 }

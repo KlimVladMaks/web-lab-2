@@ -16,10 +16,10 @@
 
     <h1>Список автовладельцев</h1>
 
-    <a href="{% url 'create_owner' %}">Добавить автовладельца</a>
+    <a href="{% url 'create_owner' %}" class="create-button">Добавить автовладельца</a>
     
     {% if owners %}
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -51,7 +51,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="{% url 'delete_owner' owner.id %}">
+                        <a href="{% url 'delete_owner' owner.id %}" class="delete">
                             Удалить
                         </a>
                     </td>
