@@ -24,9 +24,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Username</th>
-                    <th>Фамилия</th>
                     <th>Имя</th>
-                    <th>Дата рождения</th>
+                    <th>Фамилия</th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -37,9 +36,8 @@
                 <tr>
                     <td>{{ owner.id }}</td>
                     <td>{{ owner.username }}</td>
-                    <td>{{ owner.last_name }}</td>
                     <td>{{ owner.first_name }}</td>
-                    <td>{{ owner.birth_date|default:"Не указана" }}</td>
+                    <td>{{ owner.last_name }}</td>
                     <td>
                         <a href="{% url 'owner_detail' owner.id %}">
                             Подробнее
