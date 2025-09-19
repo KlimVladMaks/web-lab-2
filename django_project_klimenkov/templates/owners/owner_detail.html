@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="{% static 'css/styles.css'%}" type="text/css">
 </head>
 <body>
-    <a href="{% url 'owners_list' %}">← Назад к списку автовладельцев</a>
+    <a href="{% url 'owners_list' %}" class="back-button">← Назад к списку автовладельцев</a>
 
     <h1>Информация об автовладельце</h1>
     
-    <div>
+    <div class="detail-card">
         <p><strong>ID владельца:</strong> {{ owner.id }}</p>
         <p><strong>Username:</strong> {{ owner.username }}</p>
         <p><strong>Фамилия:</strong> {{ owner.last_name }}</p>

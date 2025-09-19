@@ -1,10 +1,13 @@
+/* Общие стили */
+
 :root {
     --background-color: rgb(255, 255, 255);
-    --gray: rgb(213, 213, 213);
+    --grey: rgb(225, 225, 225);
     --black: rgb(30, 30, 30);
     --light-blue: rgb(183, 182, 255);
     --blue: rgb(0, 0, 126);
     --red: rgb(182, 0, 0);
+    --light-red: rgb(255, 200, 200);
 }
 
 * {
@@ -23,9 +26,11 @@ body {
     margin: 0 auto;
 }
 
+/* Список */
+
 .nav-menu {
     display: inline-block;
-    background-color: var(--gray);
+    background-color: var(--grey);
     padding: 15px;
     margin: 8px 0;
     border: 1px solid var(--black);
@@ -44,7 +49,7 @@ body {
 .create-button {
     display: inline-block;
     padding: 8px 12px;
-    background: var(--gray);
+    background: var(--grey);
     color: var(--black);
     text-decoration: none;
     margin: 10px 0;
@@ -71,7 +76,7 @@ body {
 }
 
 .table th {
-    background-color: var(--gray);
+    background-color: var(--grey);
 }
 
 .table a {
@@ -90,4 +95,81 @@ body {
 .table .delete:focus {
     color: var(--red);
     border-bottom: 2px solid var(--red)
+}
+
+/* Подробнее */
+
+.back-button {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+}
+
+.back-button:hover {
+    border-bottom: 2px solid var(--blue);
+    color: var(--blue);
+}
+
+.detail-card {
+    display: inline-block;
+    border: 1px solid var(--black);
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* Изменение, добавление, удаление */
+
+.form {
+    display: inline-block;
+    border: 1px solid var(--black);
+    padding: 15px;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.form input {
+    padding: 5px;
+    margin: 10px 5px;
+}
+
+.form label {
+    font-weight: 500;
+}
+
+.form .buttons {
+    display: inline-flex;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+.form button {
+    padding: 8px;
+    font-size: 15px;
+    background-color: var(--grey);
+    border: 1px solid var(--black);
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: var(--light-blue);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+}
+
+.form a {
+    padding: 8px;
+    border: 1px solid var(--black);
+    color: var(--black);
+    text-decoration: none;
+    background-color: var(--grey);
+}
+
+.form a:hover {
+    opacity: 0.8;
+}
+
+.form .delete:hover {
+    background-color: var(--light-red);
+    color: var(--red);
+    border: 1px solid var(--red);
 }

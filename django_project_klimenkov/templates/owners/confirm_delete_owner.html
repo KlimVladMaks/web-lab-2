@@ -9,18 +9,18 @@
 </head>
 <body>
     <h1>Подтверждение удаления</h1>
-    
-    <p>Вы уверены, что хотите удалить автовладельца:</p>
-    <p><strong>{{ owner.first_name }} {{ owner.last_name }} (ID: {{ owner.id }})</strong></p>
-    
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">
-            Да, удалить
-        </button>
-        <a href="{% url 'owners_list' %}">
-            Отмена
-        </a>
-    </form>
+
+    <div class="form">
+        <p>Вы уверены, что хотите удалить автовладельца:</p>
+        <p><strong>{{ owner.first_name }} {{ owner.last_name }} (ID: {{ owner.id }})</strong></p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="buttons">
+                <button type="submit" class="delete">Да, удалить</button>
+                <a href="{% url 'owners_list' %}">Отмена</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

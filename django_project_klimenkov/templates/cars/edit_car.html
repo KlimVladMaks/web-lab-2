@@ -6,14 +6,16 @@
     <link rel="stylesheet" href="{% static 'css/styles.css'%}" type="text/css">
 </head>
 <body>
-    <a href="{% url 'cars_list' %}">← Назад к списку автомобилей</a>
     
     <h1>Изменить автомобиль: {{ car.model }} ({{ car.license_plate }}) (ID: {{ car.car_id }})</h1>
     
-    <form method="post">
+    <form method="post" class="form">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Сохранить</button>
+        <div class="buttons">
+            <button type="submit">Сохранить</button>
+            <a href="{% url 'cars_list' %}">Отмена</a>
+        </div>
     </form>
 </body>
 </html>

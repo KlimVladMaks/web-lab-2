@@ -6,14 +6,16 @@
     <link rel="stylesheet" href="{% static 'css/styles.css'%}" type="text/css">
 </head>
 <body>
-    <a href="{% url 'owners_list' %}">← Назад к списку автовладельцев</a>
 
     <h1>Добавить автовладельца</h1>
     
-    <form method="post">
+    <form method="post" class="form">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Добавить</button>
+        <div class="buttons">
+            <button type="submit">Добавить</button>
+            <a href="{% url 'owners_list' %}">Отмена</a>
+        </div>
     </form>
 </body>
 </html>
