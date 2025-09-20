@@ -1,5 +1,5 @@
 # Работа с venv:
-.venv\Scripts\activate
+source .venv/bin/activate
 deactivate
 
 # Данные суперпользователя:
@@ -10,11 +10,11 @@ Password: 12345
 http://127.0.0.1:8000/admin/
 
 # Миграция БД:
-python manage.py makemigrations project_first_app
-python manage.py migrate
+python3 manage.py makemigrations project_first_app
+python3 manage.py migrate
 
 # Запуск сервера:
-python manage.py runserver
+python3 manage.py runserver
 
 # Создание суперпользователя:
-python manage.py createsuperuser
+python3 manage.py createsuperuser
